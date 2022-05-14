@@ -29,14 +29,17 @@ external peripherals, MIO configuration:
 
 ## Notes
 
-** xsa is a package file, can be opened by rar:
+**xsa is a package file, can be opened by rar:**
+
 It contains the bitstream, ps_init.tcl and some XML files;
 
-** PS is hard core
+**PS is hard core**
+
 Hard core means everything in PS are fixed, can't be changed. So hw definition is not manidate for software 
 development for this chip;
 
-** Connecting eMMC’s Card Detect
+**Connecting eMMC’s Card Detect**
+
 Unlike previous board definitions in Vivado 2014.x, the schema in 2015.1 does not
 support adding special connections directly in the board definitions. For this reason, if
 you plan on using the PicoZed eMMC in Linux, you need to connect the CDn (Card
@@ -52,5 +55,5 @@ connect_bd_net [get_bd_pins GND/dout] [get_bd_pins processing_system7_0/SDIO1_CD
 ```
 
 ## Questions
-** what is ps7? and ps7_init?
+**what is ps7? and ps7_init?**
 
