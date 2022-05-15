@@ -70,7 +70,7 @@ clean:
 	- find . -name '*.o' -prune -exec rm -r -f {} \;
 	- find . -name '*.d' -prune -exec rm -r -f {} \;
 	- find . -name '*.elf' -prune -exec rm -r -f {} \;
-	- find . -name '*.bin' -prune -exec rm -r -f {} \;
+	- find . -name '*.BIN' -prune -exec rm -r -f {} \;
 	- find . -name '*.a' -not -path "./bsp/ps7_cortexa9_0/libsrc/xilrsa_v1_6/src/*" -prune -exec rm -r -f {} \;
 	- find . -name '*.mod' -prune -exec rm -r -f {} \;
 	- find . -name '*.mod.c' -prune -exec rm -r -f {} \;
