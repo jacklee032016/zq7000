@@ -1,18 +1,19 @@
 # Vitis and software debug
 
-##Hardware definition file *.xsa
-contains bit file, ps_init.tcl and xml for hw description
+## Hardware definition file *.xsa
 
-Create **platform project** from hw definition file;
+contains bit file, _ps_init.tcl_ and xml for hw description
+
+* Create **platform project** from hw definition file:
     * bsp files
     * fsbl file: first stage boot loader
 
-Create **application project** from **platform project**:
+* Create **application project** from **platform project**:
     * Hello World, etc.;
     * FresRTOS;
     * Linux;
     
-##Debug 
+## Debug 
 
 Hardware connection:
 * Board JTAG mode;
@@ -33,21 +34,20 @@ Other debug operations: set break point; read register; read/write local variabl
 
 
 ### debug FSBL
-Defaultly, no msg output when running fsbl; But it is can be enabled by modify debug macros in _fsbl_debug.h;
+Defaultly, no msg output when running fsbl; But it is can be enabled by modify debug macros in *fsbl_debug.h*;
 
 
 ## Jump configuration
 
-MicroZed7020, xc7z020clg400-1
+>MicroZed7020, xc7z020clg400-1
 
 jumper  JP1~3. HW manual 28
 
+|  Mode    |  JP-A       | JP-B        |
+|----------|-------------|-------------|
 |QSPI mode | JP3(low)    |JP2/JP1(high)|
-|--------------------------------------|
-|JTAG mode | JP1-3(high) |             |  
-|--------------------------------------|
+|JTAG mode | JP1-3(high) |             |
 |SD   mode | JP3/JP2(low)|JP1(high)    |
-
 
 
 ## References
