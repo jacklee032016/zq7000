@@ -57,7 +57,7 @@ connect_bd_net [get_bd_pins GND/dout] [get_bd_pins processing_system7_0/SDIO1_CD
 ## Questions
 **what is ps7? and ps7_init?**
 * ps7: Process  System 7(PS)
-* ps7_init: initialize all registers of PS7;
+* ps7_init: initialize all registers of PS7,eg. so-called platform initialization;
 
 ## References
 
