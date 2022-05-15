@@ -1,5 +1,5 @@
-README for Hello World
+# README for Hello World
 
 [Vivado Hardware Design](../hw/hardware_design.md)
 
-Vitis Software generate and debug [here] (./)
+[Vitis Software generate and debug](../hw/vitis_debug.md)
