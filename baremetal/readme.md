@@ -26,10 +26,16 @@ Bare Metal app can run in OCM, DDR or even XIP in flash(zynq support XIP in flas
 
 only include/xparameters.h is generated from hw definition, other header files are copied from their implementation folders;
 
+remove the copied header files, exclude xparameters.h and its parent folder 'include':
+```
+	- find bsp/ps7_cortexa9_0/include ! -name 'xparameters.h' ! -name 'include' -prune -exec rm -r -f {} \;
+```
+
 ## Usage
 
 * install peta-linux;
 * install bootgen: `sudo apt install bootgen-xlnx`;
+* command `source /opt/xilinx/sdk/settings.sh` to initialize build environment; /opt/xilinix/sdk is the install folder of peta-linux;
 * build and generate the binary file: `make`;
 
 
