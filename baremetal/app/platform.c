@@ -29,6 +29,11 @@
 * this Software without prior written authorization from Xilinx.
 *
 ******************************************************************************/
+#define     LED_ENABLE      1  // may 16, 2022
+
+#if LED_ENABLE
+#include "xgpiops.h"
+#endif
 
 #include "xparameters.h"
 #include "xil_cache.h"
@@ -88,10 +93,17 @@ init_uart()
     /* Bootrom/BSP configures PS7/PSU UART to 115200 bps */
 }
 
+#if LED_ENABLE
+#define GPIO_LED_PIN        47
+#define GPIO_LED_ON         1
+XGpioPs Gpio;
+#endif
+
 void
 init_platform()
 {
-    /*
+    int Status; XGpioPs_Config *GPIOConfigPtr;
+/*
      * If you want to run this example outside of SDK,
      * uncomment one of the following two lines and also #include "ps7_init.h"
      * or #include "ps7_init.h" at the top, depending on the target.
@@ -102,6 +114,21 @@ init_platform()
     /* psu_init();*/
     enable_caches();
     init_uart();
+
+#if LED_ENABLE
+    GPIOConfigPtr = XGpioPs_LookupConfig(XPAR_PS7_GPIO_0_DEVICE_ID); 
+    Status = XGpioPs_CfgInitialize(&Gpio, GPIOConfigPtr, GPIOConfigPtr ->BaseAddr);
+    if (Status != XST_SUCCESS)
+    {
+        return;
+    }    
+
+    XGpioPs_SetDirectionPin(&Gpio, GPIO_LED_PIN, 1);
+    XGpioPs_SetOutputEnablePin(&Gpio, GPIO_LED_PIN, 1);
+
+    // default, PULL-UP disabled; Logic high, LED is ON
+    XGpioPs_WritePin(&Gpio, GPIO_LED_PIN, GPIO_LED_ON);
+#endif    
 }
 
 void

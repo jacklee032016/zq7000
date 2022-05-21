@@ -22,6 +22,10 @@ Bare Metal app can run in OCM, DDR or even XIP in flash(zynq support XIP in flas
 [Detail about memory map and boot flow of zynq700](https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842377/Zynq-7000+AP+SoC+Boot+-+Booting+and+Running+Without+External+Memory+Tech+Tip)
 
 
+## header files
+
+only include/xparameters.h is generated from hw definition, other header files are copied from their implementation folders;
+
 ## Usage
 
 * install peta-linux;

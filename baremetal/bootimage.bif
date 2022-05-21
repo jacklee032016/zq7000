@@ -2,5 +2,6 @@
 the_ROM_image:
 {
 	[bootloader]fsbl/fsbl.elf
+    design_1_wrapper.bit
 	app/app.elf
 }
